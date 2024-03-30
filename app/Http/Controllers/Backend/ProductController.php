@@ -8,18 +8,21 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Auth;
-
 class ProductController extends Controller
 {
+    
     public function viewProduct(){
+        
         $data = Product::select('products.*','category.name as cateName','users.name as userName')
                 ->join('category','products.category_id','=','category.id')
                 ->join('users','products.user_id','=','users.id')
                 ->orderByDesc('id')
                 ->get();
 
+        $total = Product::count('id');
+
         // return $data;
-        return view('Backend.list-product',compact('data'));
+        return view('Backend.list-product',compact('data','total'));
     }
     public function openAdd(){
         $category = DB::table("category")->get();

@@ -5,7 +5,7 @@
       Admin | List Product
     @endsection
     @section('page-main-title')
-      List Product
+      Total Product {{$total}}
     @endsection
 
     <div class="container-xxl flex-grow-1 container-p-y">

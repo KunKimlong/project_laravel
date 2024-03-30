@@ -5,6 +5,8 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ShopController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,5 +46,14 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/update-product',[ProductController::class,'updateProduct']);
         Route::post('/delete-product',[ProductController::class,'deleteProduct']);
 
+        // logout
+
+        Route::get('/logout',[UserController::class,'logout']);
     });
 });
+
+Route::get('/',[HomeController::class,'index']);
+Route::get('/search',[HomeController::class,'search']);
+
+Route::get('/product/{id}',[HomeController::class,'productDetail']);
+Route::get('/shop',[ShopController::class,'index']);

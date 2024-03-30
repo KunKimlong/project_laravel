@@ -76,6 +76,8 @@
                                         <option value="Red">Red</option>
                                         <option value="Blue">Blue</option>
                                         <option value="Grey">Grey</option>
+                                        <option value="Grey">Yellow</option>
+                                        <option value="Grey">Pink</option>
                                         <option value="Black">Black</option>
                                     </select>
                                 </div>
